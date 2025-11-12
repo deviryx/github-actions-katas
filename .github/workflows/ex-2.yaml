@@ -1,6 +1,12 @@
 name: Main workflow
 on: push
 jobs:
+  markdown-lint:
+    name: markdown-lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npx markdown-cli *.md
   Build:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
